@@ -1,0 +1,46 @@
+/* ===== Scroll reveal =====
+   Uses `animation` + the individual `translate`/`scale` properties so it never overrides
+   an element's own `transform` (positioning) or `transition` (hover effects). */
+.rv:not(.in){opacity:0}
+.rv.in{animation:rv-up .85s cubic-bezier(.2,.75,.25,1) both;animation-delay:calc(var(--d,0) * 110ms)}
+.rv-left.in{animation-name:rv-left}
+.rv-right.in{animation-name:rv-right;animation-duration:1.05s}
+@keyframes rv-up{from{opacity:0;translate:0 36px}to{opacity:1;translate:none}}
+@keyframes rv-left{from{opacity:0;translate:-60px 0}to{opacity:1;translate:none}}
+@keyframes rv-right{from{opacity:0;translate:60px 0;scale:.97}to{opacity:1;translate:none;scale:none}}
+
+/* hero stats bar & photo get a slightly later entrance on page load */
+.hx-stats.rv.in{animation-delay:.55s}
+.hx-visual.rv.in{animation-delay:.15s}
+
+/* gold heading underlines draw from left to right once visible */
+.rv.in h2 em::after,.rv.in .sv-title em::after{animation:rv-draw 1s .45s cubic-bezier(.6,0,.2,1) both}
+@keyframes rv-draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.eg-head.rv.in::after{animation:rv-draw 1s .5s cubic-bezier(.6,0,.2,1) both}
+
+/* ===== Ambient motion ===== */
+.pg-atom,.im-atom{animation:rv-spin 38s linear infinite}
+@keyframes rv-spin{to{rotate:360deg}}
+.ab-mascot,.pg-mascot{animation:rv-float 5s ease-in-out infinite}
+@keyframes rv-float{0%,100%{translate:0 0}50%{translate:0 -14px}}
+.hx-ring{animation:rv-drift 14s ease-in-out infinite alternate}
+@keyframes rv-drift{from{rotate:-3deg}to{rotate:4deg}}
+.ab-dots,.eg-dots,.pg-dots{animation:rv-twinkle 4s ease-in-out infinite}
+@keyframes rv-twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+.hx-video span,.ab-play{animation:rv-pulse 2.4s ease-out infinite}
+@keyframes rv-pulse{0%{box-shadow:0 0 0 0 #e2ae4570}100%{box-shadow:0 0 0 18px #e2ae4500}}
+.co-ring-a{animation:rv-drift 18s ease-in-out infinite alternate}
+
+/* gold buttons: shine sweep on hover */
+.hx-btn-gold{position:relative;overflow:hidden;isolation:isolate}
+.hx-btn-gold::after{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,#ffffff8c,transparent);transform:skewX(-20deg);transition:left .6s ease}
+.hx-btn-gold:hover::after{left:130%}
+
+/* header gets a stronger shadow once the page is scrolled */
+.hx-header.scrolled .hx-header-bar{box-shadow:0 14px 40px #10264b26}
+
+@media (prefers-reduced-motion:reduce){
+  .rv,.rv.in{animation:none!important;opacity:1!important}
+  .pg-atom,.im-atom,.ab-mascot,.pg-mascot,.hx-ring,.ab-dots,.eg-dots,.pg-dots,.hx-video span,.ab-play,.co-ring-a{animation:none!important}
+  .rv.in h2 em::after,.rv.in .sv-title em::after,.eg-head.rv.in::after{animation:none!important}
+}

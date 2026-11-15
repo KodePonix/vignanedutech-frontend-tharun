@@ -1,0 +1,35 @@
+/* ===== Collaborate / Partner With Us ===== */
+.co{padding:80px 40px;background:#fff}
+.co-panel{position:relative;overflow:hidden;isolation:isolate;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:50px;align-items:center;padding:64px 60px;border-radius:40px;background:linear-gradient(120deg,#0d2350 0,#173f86 55%,#0f2a5e 100%);border:2px solid #e2ae45;box-shadow:0 30px 70px #10264b38;color:#fff}
+.co-ring{position:absolute;z-index:-1;border-radius:50%;border:2px solid #e2ae4540}
+.co-ring-a{width:520px;height:520px;right:-140px;top:-200px}
+.co-ring-b{width:340px;height:340px;right:-50px;top:-110px;border-color:#e2ae4526}
+.co-dots{position:absolute;z-index:-1;left:40%;bottom:30px;width:140px;height:70px;background-image:radial-gradient(#ffffff30 2px,transparent 2.6px);background-size:20px 20px}
+.co-copy h2{font:800 clamp(32px,3.4vw,58px)/1.1 Manrope,sans-serif;letter-spacing:-1.2px;margin:24px 0 18px}
+.co-copy h2 em{font-style:normal;color:#f2bd4e}
+.co-copy>p{margin:0;max-width:620px;color:#d3dcec;font-size:clamp(15px,1.2vw,19px);line-height:1.6}
+.co-benefits{list-style:none;padding:0;margin:32px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:14px 16px}
+.co-benefits li{display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;background:#ffffff12;border:1px solid #ffffff22;font-size:15px;font-weight:600}
+.co-benefits span{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#f4c95d,#d4952a);color:var(--navy)}
+
+.co-card{position:relative;background:#fff;color:var(--navy);border-radius:28px;padding:38px 36px;box-shadow:0 24px 60px #0b1d3966}
+.co-card::before{content:'';position:absolute;left:36px;right:36px;top:0;height:5px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,#c98a14,#f2c35a)}
+.co-card-icon{width:72px;height:72px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(160deg,#1d3f7a,var(--navy));color:#f0b94a;box-shadow:0 12px 24px #10264b30}
+.co-card h3{font:800 clamp(21px,1.7vw,28px)/1.25 Manrope,sans-serif;margin:22px 0 10px}
+.co-card p{margin:0;color:#5d6a80;font-size:16px;line-height:1.6}
+.co-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.co-btn-outline{border:1.5px solid #d6dde9;color:var(--navy);background:#fff}
+.co-btn-outline:hover{border-color:#e2ae45;background:#fdf6e6}
+.co-note{display:flex;align-items:center;gap:7px;margin-top:18px;color:#6b788d;font-size:13px}
+.co-note svg{color:#37875a}
+
+@media (max-width:1100px){
+  .co-panel{grid-template-columns:1fr;padding:50px 40px}
+}
+@media (max-width:640px){
+  .co{padding:56px 16px}
+  .co-panel{padding:38px 22px;border-radius:28px;gap:34px}
+  .co-benefits{grid-template-columns:1fr}
+  .co-card{padding:30px 22px}
+  .co-actions .hx-btn{width:100%;justify-content:center}
+}
